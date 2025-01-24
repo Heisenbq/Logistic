@@ -1,0 +1,36 @@
+<h1 style="text-align: center;">Vehicles</h1>
+
+<div style="text-align: center; margin-bottom: 20px;">
+  <%= link_to 'Create Vehicle', new_vehicle_path, class: 'btn btn-primary' %>
+  <%= link_to 'Back to home page', "pages/home", class: 'btn btn-primary' %>
+</div>
+
+<table class="vehicles-table">
+  <thead>
+    <tr>
+      <th>Registration Number</th>
+      <th>Model</th>
+      <th>Year</th>
+      <th>Capacity</th>
+      <th>Location</th>
+      <th>Show more info</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @vehicles.each do |vehicle| %>
+      <tr>
+        <td><%= vehicle.registration_number %></td>
+        <td><%= vehicle.model %></td>
+        <td><%= vehicle.year %></td>
+        <td><%= vehicle.capacity %></td>
+        <td><%= vehicle.location %></td>
+        <td>
+          <%= link_to 'Show', vehicle, class: 'btn btn-info' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+

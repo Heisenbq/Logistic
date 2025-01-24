@@ -1,0 +1,36 @@
+<h1 style="text-align: center;">Deliveries</h1>
+
+<div style="text-align: center; margin-bottom: 20px;">
+  <%= link_to 'Create New Delivery', new_delivery_path, class: 'btn btn-primary' %>
+  <%= link_to 'Back to home page', "pages/home", class: 'btn btn-primary' %>
+</div>
+
+<table class="deliveries-table">
+  <thead>
+    <tr>
+      <th>Order date</th>
+      <th>Customer name</th>
+      <th>Vehicle</th>
+      <th>Driver</th>
+      <th>Delivery Date</th>
+      <th>Status</th>
+      <th>Show more info</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @deliveries.each do |delivery| %>
+      <tr>
+        <td><%= delivery.order.order_date %></td>
+        <td><%= delivery.order.customer_name %></td>
+        <td><%= delivery.vehicle.model %></td>
+        <td><%= delivery.driver.first_name %> <%= delivery.driver.last_name %></td>
+        <td><%= delivery.delivery_date.strftime('%d %B %Y') if delivery.delivery_date %></td>
+        <td><%= delivery.status %></td>
+        <td>
+          <%= link_to 'Show', delivery, class: 'btn btn-info' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

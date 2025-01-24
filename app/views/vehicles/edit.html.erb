@@ -1,0 +1,80 @@
+<h1 style="text-align: center;">Edit Vehicle</h1>
+
+<div class="form-container">
+  <%= form_with(model: @vehicle, local: true) do |form| %>
+    <div class="form-group">
+      <%= form.label :registration_number, "Registration Number", class: "form-label" %>
+      <%= form.text_field :registration_number, placeholder: "Enter registration number", class: "form-input" %>
+      <% if @vehicle.errors[:registration_number].any? %>
+        <div class="alert-danger">
+          <ul>
+            <% @vehicle.errors[:registration_number].each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :model, "Model", class: "form-label" %>
+      <%= form.text_field :model, placeholder: "Enter vehicle model", class: "form-input" %>
+      <% if @vehicle.errors[:model].any? %>
+        <div class="alert-danger">
+          <ul>
+            <% @vehicle.errors[:model].each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :year, "Year of Manufacture", class: "form-label" %>
+      <%= form.number_field :year, placeholder: "Enter year", class: "form-input" %>
+      <% if @vehicle.errors[:year].any? %>
+        <div class="alert-danger">
+          <ul>
+            <% @vehicle.errors[:year].each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :capacity, "Capacity (tons)", class: "form-label" %>
+      <%= form.number_field :capacity, placeholder: "Enter capacity", class: "form-input" %>
+      <% if @vehicle.errors[:capacity].any? %>
+        <div class="alert-danger">
+          <ul>
+            <% @vehicle.errors[:capacity].each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :location, "Location", class: "form-label" %>
+      <%= form.text_field :location, placeholder: "Enter location", class: "form-input" %>
+      <% if @vehicle.errors[:location].any? %>
+        <div class="alert-danger">
+          <ul>
+            <% @vehicle.errors[:location].each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="form-actions">
+      <%= form.submit "Update Vehicle", class: "btn btn-primary" %>
+      <%= link_to 'Back to Vehicles List', vehicles_path, class: "btn btn-secondary" %>
+    </div>
+  <% end %>
+</div>

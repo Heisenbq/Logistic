@@ -1,0 +1,15 @@
+<h1>Driver Details</h1>
+
+<p><strong>First Name:</strong> <%= @driver.first_name %></p>
+<p><strong>Last Name:</strong> <%= @driver.last_name %></p>
+<p><strong>License Number:</strong> <%= @driver.license_number %></p>
+<p><strong>Phone Number:</strong> <%= @driver.phone_number %></p>
+<p><strong>Employment Date:</strong> <%= @driver.employment_date.strftime('%d %B %Y') if @driver.employment_date %></p>
+
+<div style="margin-top: 20px;">
+  <%= link_to 'Back to Drivers', drivers_path, class: 'btn btn-info', style: 'margin-right: 10px;' %>
+  <%= link_to 'Edit', edit_driver_path(@driver), class: 'btn btn-warning', style: 'margin-right: 10px;' %>
+  <%= form_with(model: @driver, method: :delete, html: { style: 'display: inline;' }) do %>
+    <%= submit_tag 'Delete', data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+  <% end %>
+</div>

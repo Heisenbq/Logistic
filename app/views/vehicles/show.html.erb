@@ -1,0 +1,14 @@
+<h1>Vehicle Details</h1>
+
+<p><strong>Registration Number:</strong> <%= @vehicle.registration_number %></p>
+<p><strong>Model:</strong> <%= @vehicle.model %></p>
+<p><strong>Year:</strong> <%= @vehicle.year %></p>
+<p><strong>Capacity:</strong> <%= @vehicle.capacity %></p>
+<p><strong>Location:</strong> <%= @vehicle.location %></p>
+
+<%= link_to 'Back to vehicles', vehicles_path, class: 'btn btn-info' %>
+<%= link_to 'Edit', edit_vehicle_path(@vehicle), class: 'btn btn-warning' %>
+<%= form_with(model: @vehicle, method: :delete, html: { style: 'margin-top: 12px;' }) do %>
+  <%= submit_tag 'Delete', data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+<% end %>
+

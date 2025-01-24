@@ -1,0 +1,14 @@
+<h1>Order Details</h1>
+
+<p><strong>Order Date:</strong> <%= @order.order_date.strftime('%d %B %Y %H:%M') if @order.order_date %></p>
+<p><strong>Delivery Address:</strong> <%= @order.delivery_address %></p>
+<p><strong>Customer Name:</strong> <%= @order.customer_name %></p>
+<p><strong>Status:</strong> <%= @order.status %></p>
+
+<div style="margin-top: 20px;">
+  <%= link_to 'Back to Orders', orders_path, class: 'btn btn-info', style: 'margin-right: 10px;' %>
+  <%= link_to 'Edit', edit_order_path(@order), class: 'btn btn-warning', style: 'margin-right: 10px;' %>
+  <%= form_with(model: @order, method: :delete, html: { style: 'display: inline;' }) do %>
+    <%= submit_tag 'Delete', data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+  <% end %>
+</div>

@@ -1,0 +1,66 @@
+<h1 style="text-align: center;">Edit Order</h1>
+
+<div class="form-container">
+  <%= form_with(model: @order, local: true) do |form| %>
+    <div class="form-group">
+      <%= form.label :order_date, "Order Date", class: "form-label" %>
+      <%= form.datetime_select :order_date, class: "form-input" %>
+      <% if @order.errors[:order_date].any? %>
+        <div class="alert-danger">
+          <ul>
+            <% @order.errors[:order_date].each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :delivery_address, "Delivery Address", class: "form-label" %>
+      <%= form.text_field :delivery_address, placeholder: "Enter delivery address", class: "form-input" %>
+      <% if @order.errors[:delivery_address].any? %>
+        <div class="alert-danger">
+          <ul>
+            <% @order.errors[:delivery_address].each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :customer_name, "Customer Name", class: "form-label" %>
+      <%= form.text_field :customer_name, placeholder: "Enter customer name", class: "form-input" %>
+      <% if @order.errors[:customer_name].any? %>
+        <div class="alert-danger">
+          <ul>
+            <% @order.errors[:customer_name].each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :status, "Order Status", class: "form-label" %>
+      <%= form.select :status, ['pending', 'shipped', 'delivered', 'canceled'], {}, class: "form-input" %>
+      <% if @order.errors[:status].any? %>
+        <div class="alert-danger">
+          <ul>
+            <% @order.errors[:status].each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="form-actions">
+      <%= form.submit "Update Order", class: "btn btn-primary" %>
+      <%= link_to 'Back to Orders List', orders_path, class: "btn btn-secondary" %>
+    </div>
+  <% end %>
+</div>
