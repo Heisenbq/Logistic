@@ -20,7 +20,7 @@
   <tbody>
     <% @deliveries.each do |delivery| %>
       <tr>
-        <td><%= delivery.order.order_date %></td>
+        <td><%= delivery.order.order_date.strftime('%d %B %Y') %></td>
         <td><%= delivery.order.customer_name %></td>
         <td><%= delivery.vehicle.model %></td>
         <td><%= delivery.driver.first_name %> <%= delivery.driver.last_name %></td>

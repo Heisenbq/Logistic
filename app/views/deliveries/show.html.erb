@@ -1,9 +1,10 @@
 <h1>Delivery Details</h1>
 
-<p><strong>Order ID:</strong> <%= @delivery.order.id %></p>
+<p><strong>Order date:</strong> <%= @delivery.order.order_date %></p>
+<p><strong>Customer name:</strong> <%= @delivery.order.customer_name %></p>
 <p><strong>Vehicle:</strong> <%= @delivery.vehicle.model %></p>
 <p><strong>Driver:</strong> <%= @delivery.driver.first_name %> <%= @delivery.driver.last_name %></p>
-<p><strong>Delivery Date:</strong> <%= @delivery.delivery_date.strftime('%d %B %Y') if @delivery.delivery_date %></p>
+<p><strong>Delivery Date:</strong> <%= @delivery.delivery_date if @delivery.delivery_date %></p>
 <p><strong>Status:</strong> <%= @delivery.status %></p>
 
 <div style="margin-top: 20px;">

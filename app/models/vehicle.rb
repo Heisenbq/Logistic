@@ -1,4 +1,6 @@
 class Vehicle < ApplicationRecord
+  has_many :deliveries, dependent: :destroy
+
   validates :registration_number, presence: true, uniqueness: true, format: {
     with: /\A[АВЕКМНОРСТУХ]\d{3}[АВЕКМНОРСТУХ]{2}\d{2,3}\z/,
     message: "must be in the format of Russian vehicle registration numbers (e.g., А111АА123)"

@@ -1,5 +1,6 @@
 class Driver < ApplicationRecord
-  
+    has_many :deliveries, dependent: :destroy
+
     validates :first_name, presence: true, length: { maximum: 50, message: "less than 50 symbols" }
     validates :last_name, presence: true, length: { maximum: 50, message: "less than 50 symbols" }
     validates :license_number, presence: true, uniqueness: true, format: { with: /\A\d{10}\z/, message: "must only contain numbers and 10 digits" }

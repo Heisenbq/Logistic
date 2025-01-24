@@ -1,4 +1,6 @@
 class Order < ApplicationRecord
+  has_many :deliveries, dependent: :destroy
+
   validates :order_date, presence: true,  comparison: {greater_than_or_equal_to: 1900, less_than_or_equal_to: Date.today + 1, message: "cannot be in the future" }
   validates :delivery_address, presence: true, length: { maximum: 255 }
   validates :customer_name, presence: true, length: { maximum: 100 }
